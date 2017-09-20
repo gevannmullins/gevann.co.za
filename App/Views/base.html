@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Gevann Portfolio - Home{% endblock %}</title>
+
+    <!-- fonts -->
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Clicker+Script&subset=latin-ext');
+    </style>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.css">
+    <!-- <link rel="stylesheet" href="assets/css/custom_styles.css" /> -->
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        .container-wrapper {
+            position: relative;
+            left: 0;
+            top: 0;
+            background-color: red;
+        }
+
+        .container-content-wrapper {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 1600px;
+        }
+
+        .container-nav-wrapper {
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 60px;
+            height: 100vh;
+            background-color: #0e0e0e;
+            display: inline-flex;
+        }
+
+        .nav-button-container {
+            position: relative;
+            margin: auto 0;
+        }
+
+        .nav-button-blocks {
+            position: relative;
+            height: 60px;
+            width: 60px;
+            background-color: #3c763d;
+            text-align: center;
+            display: inline-flex;
+        }
+
+        .nav-button-blocks a {
+            position: relative;
+            margin: auto;
+            text-align: center;
+        }
+    </style>
+
+
+
+
+</head>
+<body>
+
+<!--Container that wraps everything-->
+<div class="container-wrapper">
+
+    <!--Container where content will be displayed-->
+    <div class="container-content-wrapper">
+        {% block body %}
+        {% endblock %}
+    </div>
+
+    <!--Container where the nav will display-->
+    <div class="container-nav-wrapper">
+
+        <!--Container where the buttons will display-->
+        <div class="nav-button-container">
+            <div class="nav-button-blocks">
+                <a href="#" class="">H</a>
+            </div>
+            <div class="nav-button-blocks">
+                <a href="#" class="">A</a>
+            </div>
+            <div class="nav-button-blocks">
+                <a href="#" class="">S</a>
+            </div>
+            <div class="nav-button-blocks">
+                <a href="#" class="">E</a>
+            </div>
+            <div class="nav-button-blocks">
+                <a href="#" class="">C</a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="/assets/js/jquery-1.11.3.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/assets/js/bootstrap.js"></script>
+<script language="javascript">
+    $(document).ready(function(){
+
+        // setup vars
+        var containerWrapper = $('.container-wrapper');
+        var contentContainer = $('.container-content-wrapper');
+        var navContainer = $('.container-nav-wrapper');
+        var navButContainer = $('.nav-button-container');
+
+        // get the browser window's width and height
+        var screenWidth = $(window).innerWidth();
+        var screenHeight = $(window).innerHeight();
+
+        // ensure the container gets the width and height for full screen
+        containerWrapper.innerWidth = screenWidth;
+        containerWrapper.innerHeight = screenHeight;
+
+        // ensure the content-wrapper gets the correct width
+        var navWidth = navContainer.width;
+        contentContainer.width = screenWidth - navWidth;
+
+    });
+</script>
+</body>
+</html>
